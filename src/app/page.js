@@ -1,16 +1,6 @@
 export default function Home() {
   return (
     <>
-      <header className="fixed top-0 left-0 w-full bg-black text-white z-50 shadow">
-        <nav className="max-w-6xl mx-auto flex justify-between itmes-center p-4">
-          <h1 className="text-2xl font-bold">Topwater Reaction</h1>
-          <u1 className="flex space=x=6">
-            <li><a href="#feather-pop" className="hover:underline">Feather Pop</a></li>
-            <li><a href="#gilled-popper" className="hover:underline">Gilled Popper</a></li>
-            <li><a href="#topwalker" className="hover:underline">TopWalker</a></li>
-          </u1>
-        </nav>
-      </header>
       <main className="flex min-h-screen flex-col items-center justify-center bg-[url('/placeholder-bg.jpg')] bg-cover bg-center text white p-8">
         <div className="bg-black/70 p-6 rounded-xl text-center max-w-xl">
           <h1 className="text-5xl font-bold mb-4">Topwater Reaction</h1>

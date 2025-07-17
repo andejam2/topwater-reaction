@@ -9,7 +9,7 @@ module.exports = {
         odgreen: '#7A9C45', 
       },
       fontFamily: {
-        sans: ['Inter', 'Helvetica']
+        sans: ['Inter', 'Helvetica', 'Arial', 'sans-serif']
       }
     },
   },
