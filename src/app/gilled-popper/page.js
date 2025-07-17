@@ -59,7 +59,7 @@ export default function GilledPopperPage() {
     return (
         <main className="font-sans bg-black text-white min-h-screen p-8">
             <h1 className="text-4xl font-bold mb-2 text-center">Gilled Popper</h1>
-            <h2 className="mb-6 text-center">This lure is 2 1/2" and weighs approx. 1/2 oz.  It is a more traditional stubby body with gills and scales and a large mouth.</h2>
+            <h2 className="mb-6 text-center">This lure is 2 1/2&quot; and weighs approx. 1/2 oz.  It is a more traditional stubby body with gills and scales and a large mouth.</h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
                 {lures.map((lure) => (

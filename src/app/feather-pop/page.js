@@ -42,7 +42,7 @@ export default function FeatherPopPage() {
     return (
         <main className="font-sans bg-black text-white min-h-screen p-8">
             <h1 className="text-4xl font-bold mb-2 text-center">Feather Pop</h1>
-            <h2 className="text-center mb-6">This lure is 2 1/2" and weighs approx. 1/3 oz with a smooth body.</h2>
+            <h2 className="text-center mb-6">This lure is 2 1/2&quot; and weighs approx. 1/3 oz with a smooth body.</h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
                 {lures.map((lure) => (
