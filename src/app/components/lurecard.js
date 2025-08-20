@@ -11,7 +11,7 @@ export default function LureCard({id, name, price, image}) {
     };
 
     return (
-        <div className="flex flex-col items-center text-center text-white p-4 shadow rounded bg-black trasition-transform duration-200 hover:scale-105">
+        <div className="flex flex-col items-center text-center text-white p-4 shadow rounded bg-black transition-transform duration-200 hover:scale-105">
             <img src={image} alt={name} className="w-full rounded mb-2" />
             <h2 className="font-semibold text-lg text-gray-600">{name}</h2>
             <p className="text-gray-600">${price.toFixed(2)}</p>
@@ -23,7 +23,7 @@ export default function LureCard({id, name, price, image}) {
                         min="1"
                         value={quantity}
                         onChange={(e) => setQuantity(parseInt(e.target.value))}
-                        className="bg-gray-300 text-white w-16 text-center border border-gray-400 rounded px-2 py-1"
+                        className="bg-gray-300 text-black w-16 text-center border border-gray-400 rounded px-2 py-1"
                     />
                 </div>
                 <button

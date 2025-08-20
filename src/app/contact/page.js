@@ -1,15 +1,32 @@
 "use client";
 
 export default function ContactPage() {
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData.entries());
 
-    console.log("Form submitted", data);
-    alert("Thank you for your submission.");
-    e.target.reset();
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(data)
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        alert("Thank you for your submission.");
+        e.target.reset();
+      } else {
+        alert(`Error: ${result.message}`);
+      }
+
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("An unexpected error occured.");
+    }
   };
 
   return (
@@ -60,6 +77,13 @@ export default function ContactPage() {
             className="w-full p-2 rounded bg-white text-black"
           ></textarea>
         </div>
+
+        <input
+          type="text"
+          name="botField"
+          style={{display: 'none'}}
+          autoComplete="off"
+        />
 
         <button
           type="submit"

@@ -1,13 +1,26 @@
 "use client";
-import { createContext, useState, useContext } from "react";
+import { createLocalRequestContext } from "next/dist/server/after/builtin-request-context";
+import { createContext, useState, useContext, useEffect } from "react";
 
 const CartContext = createContext();
 
 export function CartProvider({ children }) {
     const [cartItems, setCartItems] = useState([]);
 
+    useEffect(() => {
+        try {
+            const raw = localStorage.getItem("cartItems");
+            if (raw) setCartItems(JSON.parse(raw));
+        } catch {}
+    }, []);
+
+    useEffect(() => {
+        try {
+            localStorage.setItem("cartItems", JSON.stringify(cartItems));
+        } catch {}
+    }, [cartItems]);
+
     const addToCart = (item) => {
-        console.log("adding to cart:", item);
         setCartItems((prev) => {
             const existing = prev.find((i) => i.id === item.id);
             if (existing) {
@@ -23,17 +36,20 @@ export function CartProvider({ children }) {
         setCartItems((prev) => prev.filter((item) => item.id !== id));
     };
 
+    const updateQuantity = (id, qty) =>
+        setCartItems((prev) =>
+            prev.map((i) => (i.id === id ? {...i, quantity: Math.max(1, qty) } : i))
+        );
+
     const clearCart = () => {
         setCartItems([]);
     };
 
     return (
-        <CartContext.Provider value={{cartItems, addToCart, removeFromCart, clearCart}}>
+        <CartContext.Provider value={{cartItems, addToCart, removeFromCart, clearCart, updateQuantity}}>
             {children}
         </CartContext.Provider>
     );
 }
 
-export function useCart() {
-    return useContext(CartContext);
-}
+export const useCart = () => useContext(CartContext);
