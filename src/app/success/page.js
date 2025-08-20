@@ -1,10 +1,27 @@
 "use client";
-import { useEffect, useState } from "react";
+
+import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { useCart } from "../components/cartcontext";
 import Link from "next/link";
 
+// Outer component: provides the Suspense boundary
 export default function SuccessPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen bg-black text-white flex items-center justify-center">
+          Loading…
+        </div>
+      }
+    >
+      <SuccessInner />
+    </Suspense>
+  );
+}
+
+// Inner component: this is where we use hooks like useSearchParams
+function SuccessInner() {
   const params = useSearchParams();
   const sessionId = params.get("session_id");
   const [session, setSession] = useState(null);
@@ -54,14 +71,17 @@ export default function SuccessPage() {
                   )}
                 </div>
                 <div className="font-semibold">
-                  ${((li.price?.unit_amount || 0) * (li.quantity || 1) / 100).toFixed(2)}
+                  ${(((li.price?.unit_amount || 0) * (li.quantity || 1)) / 100).toFixed(2)}
                 </div>
               </li>
             ))}
           </ul>
         )}
 
-        <Link href="/" className="inline-block mt-6 bg-odgreen hover:bg-green-700 text-white px-4 py-2 rounded">
+        <Link
+          href="/"
+          className="inline-block mt-6 bg-odgreen hover:bg-green-700 text-white px-4 py-2 rounded"
+        >
           Continue shopping
         </Link>
       </div>
