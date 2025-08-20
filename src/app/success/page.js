@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { useCart } from "../components/cartcontext";
+import Link from "next/link";
 
 export default function SuccessPage() {
   const params = useSearchParams();
@@ -20,7 +21,7 @@ export default function SuccessPage() {
         if (data.payment_status === "paid") clearCart();
       }
     })();
-  }, [sessionId]);
+  }, [sessionId, clearCart]);
 
   const email = session?.customer_details?.email;
   const total = session ? (session.amount_total / 100).toFixed(2) : null;
@@ -60,9 +61,9 @@ export default function SuccessPage() {
           </ul>
         )}
 
-        <a href="/" className="inline-block mt-6 bg-odgreen hover:bg-green-700 text-white px-4 py-2 rounded">
+        <Link href="/" className="inline-block mt-6 bg-odgreen hover:bg-green-700 text-white px-4 py-2 rounded">
           Continue shopping
-        </a>
+        </Link>
       </div>
     </main>
   );
