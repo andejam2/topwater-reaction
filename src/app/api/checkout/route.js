@@ -1,6 +1,11 @@
 import Stripe from "stripe";
 
 export async function POST(request) {
+    console.log("checkout env:", {
+        hasKey: !!process.env.STRIPE_SECRET_KEY,
+        prefix: process.env.STRIPE_SECRET_KEY?.slice(0, 8) || "missing",
+    });
+
   try {
     const { items } = await request.json(); // [{ id, name, price, quantity, image }]
     if (!items?.length) {
