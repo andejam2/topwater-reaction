@@ -1,43 +1,55 @@
 import Stripe from "stripe";
+import { headers } from "next/headers";
 
-export async function POST(request) {
-    console.log("checkout env:", {
-        hasKey: !!process.env.STRIPE_SECRET_KEY,
-        prefix: process.env.STRIPE_SECRET_KEY?.slice(0, 8) || "missing",
-    });
+export async function POST(req) {
+  const key = process.env.STRIPE_SECRET_KEY;
+
+  // --- TEMP: log what the server actually sees ---
+  console.log("checkout env:", {
+    hasKey: !!key,
+    prefix: key ? key.slice(0, 8) : "missing",
+    origin: headers().get("origin"),
+  });
+
+  if (!key) {
+    return new Response(
+      JSON.stringify({ error: "Server misconfigured: missing STRIPE_SECRET_KEY" }),
+      { status: 500, headers: { "Content-Type": "application/json" } }
+    );
+  }
+
+  const stripe = new Stripe(key);
 
   try {
-    const { items } = await request.json(); // [{ id, name, price, quantity, image }]
-    if (!items?.length) {
-      return new Response(JSON.stringify({ error: "No items" }), { status: 400 });
-    }
+    const { items } = await req.json();
 
-    const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+    // TEMP: log the payload shape too
+    console.log("checkout payload:", Array.isArray(items) ? items.length : items);
 
     const line_items = items.map((it) => ({
-      price_data: {
-        currency: "usd",
-        product_data: {
-          name: it.name,
-          // include full URL for images
-          images: it.image ? [new URL(it.image, process.env.NEXT_PUBLIC_BASE_URL).toString()] : [],
-        },
-        unit_amount: Math.round(Number(it.price) * 100),
-      },
-      quantity: Number(it.quantity) || 1,
+      price: it.priceId,          // <-- must be a TEST price id like price_123...
+      quantity: it.quantity || 1,
     }));
+
+    const origin =
+      headers().get("origin") || process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
 
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
       line_items,
-      // You can add automatic tax later: automatic_tax: { enabled: true },
-      success_url: `${process.env.NEXT_PUBLIC_BASE_URL}/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${process.env.NEXT_PUBLIC_BASE_URL}/canceled`,
+      success_url: `${origin}/success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${origin}/cart`,
     });
 
-    return new Response(JSON.stringify({ url: session.url }), { status: 200 });
+    return new Response(JSON.stringify({ url: session.url }), {
+      headers: { "Content-Type": "application/json" },
+    });
   } catch (err) {
     console.error("Checkout error:", err);
-    return new Response(JSON.stringify({ error: "Checkout error" }), { status: 500 });
+    return new Response(JSON.stringify({ error: String(err?.message || err) }), {
+      status: 500,
+      headers: { "Content-Type": "application/json" },
+    });
   }
 }
+
