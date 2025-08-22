@@ -2,12 +2,12 @@
 import { useState } from "react";
 import { useCart } from "./cartcontext";
 
-export default function LureCard({id, name, price, image}) {
+export default function LureCard({id, name, price, image, priceId}) {
     const [quantity, setQuantity] = useState(1);
     const {addToCart} = useCart();
 
     const handleAdd = () => {
-        addToCart({id, name, price, quantity, image});
+        addToCart({id, name, price, quantity, image, priceId});
     };
 
     return (
