@@ -17,7 +17,8 @@ export default function GilledPopperPage() {
             id: "gilled-bluecitrus",
             name: "Blue with Citrus Shad Skirt",
             price: 12.99,
-            image: "/gilledpopperblueblack.jpg"
+            image: "/gilledpopperblueblack.jpg",
+            priceId: "price_1RyvX2GuGV8LB8ft4w1qP1E3"
         },
         {
             id: "gilled-greenbabybass",
