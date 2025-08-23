@@ -12,30 +12,35 @@ export default function FeatherPopPage() {
             name: "Blue with Bluegill Skirt",
             price: 13.59,
             image: "/featherpopblue.jpg",
+            priceId: priceIds["bluegill"]
         },
         {
             id: "greenchartreuse",
             name: "Green with Chartreuse Shad Skirt",
             price: 13.59,
             image: "/featherpopgrn.jpg",
+            priceId: priceIds["greenchartreuse"]
         },
         {
             id: "pumpkinseed",
             name: "Purple with Pumpkin Seed Skirt",
             price: 13.59,
             image: "/featherpoppurple.jpg",
+            priceId: priceIds["pumpkinseed"]
         },
         {
             id: "gizzardshad",
             name: "Red with Gizzard Shad Skirt",
             price: 13.59,
             image: "/featherpopred.jpg",
+            priceId: priceIds["gizzardshad"]
         },
         {
             id: "sexyshad",
             name: "Yellow with Sexy Shad Skirt",
             price: 13.59,
             image: "/featherpopyellow.jpg",
+            priceId: priceIds["sexyshad"]
         },
     ]
 

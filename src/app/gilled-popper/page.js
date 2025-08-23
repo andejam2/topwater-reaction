@@ -64,6 +64,7 @@ export default function GilledPopperPage() {
             image: "/gilledpopperyellowblack.jpg",
             priceId: priceIds["gilled-yellowsexyshad"]
         },
+        
     ]
     return (
         <main className="font-sans bg-black text-white min-h-screen p-8">
@@ -78,3 +79,4 @@ export default function GilledPopperPage() {
         </main>
     );
 }
+
