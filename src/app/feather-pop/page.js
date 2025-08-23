@@ -2,6 +2,7 @@
 import { useCart } from "../components/cartcontext";
 import { useState } from "react";
 import LureCard from "../components/lurecard";
+import { priceIds } from "../lib/priceIds";
 
 export default function FeatherPopPage() {
     const [quantity, setQuantity] = useState(1);
