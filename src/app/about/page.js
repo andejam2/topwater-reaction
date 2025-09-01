@@ -1,22 +1,4 @@
-{/*
-export default function AboutPage() {
-  return (
-    <div>
-      <h1>About Us</h1>
-      <p>
-        We paint, assemple and package our unique poppers in our shop in Lafayette, Tennessee.
-        As the name implies, <strong>TOP WATER REACTION BAITS</strong> might just be the answer
-        to maximize your topwater fishing experience.
-      </p>
-      <p>
-        After fishing with these lures for many years, topwater enthusiasts find fish are easily
-        attracted to these simple baits.  You should be able to choose one of these unique lures
-        to match your fishing conditions.
-      </p>
-    </div>
-  );
-}
-*/}
+
 
 export const metadata = {
   title: "About | Topwater Reaction Baits",
