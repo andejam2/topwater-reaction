@@ -7,7 +7,7 @@ sg.setApiKey(process.env.SENDGRID_API_KEY);
 
 export async function POST(req) {
   try {
-    const { name = "", email = "", message = "" } = await req.json();
+    const { name = "", email = "", subject = "", message = "" } = await req.json();
 
     if (!process.env.SENDGRID_API_KEY || !process.env.CONTACT_FROM || !process.env.CONTACT_TO) {
       throw new Error("Missing SENDGRID_API_KEY / CONTACT_FROM / CONTACT_TO");
