@@ -18,9 +18,9 @@ export default function Home() {
       <section className="w-full px-6 py-10 bg-black">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-1">
           {[
-            {name: 'Feather Pop 2 1/2', image: '/feather-pop-placeholder.jpg', link: '/feather-pop', id: 'feather-pop' },
-            {name: 'Gilled Popper 2 1/2', image: '/gilled-popper-placeholder.jpg', link: '/gilled-popper', id: 'gilled-popper' },
-            {name: 'TopWalker 3 1/2', image: '/topwalker-placeholder.jpg', link: '/topwalker', id: 'topwalker' },
+            {name: 'Feather Pop 2 1/2', image: '/featherpopgrn1.jpg', link: '/feather-pop', id: 'feather-pop' },
+            {name: 'Gilled Popper 2 1/2', image: '/gilledpopperyellowblack1.jpg', link: '/gilled-popper', id: 'gilled-popper' },
+            {name: 'TopWalker 3 1/2', image: '/topwalkerhomepage.jpg', link: '/topwalker', id: 'topwalker' },
           ].map((style, idx) => (
             <a key={idx} href={style.link}>
               <section id={style.id} className="relative aspect-[11/4] w-full bg-black text-white group overflow-hidden">

@@ -12,58 +12,65 @@ export default function GilledPopperPage() {
             id: "gilled-blackwalleye",
             name: "Black with Walleye Skirt",
             price: 12.99,
-            image: "/gilledpopperblack.jpg",
+            image: "/gilledpopperblack1.jpg",
             priceId: priceIds["gilled-blackwalleye"]
         },
         {
             id: "gilled-bluecitrus",
             name: "Blue with Citrus Shad Skirt",
             price: 12.99,
-            image: "/gilledpopperblueblack.jpg",
+            image: "/gilledpopperblueblack1.jpg",
             priceId: priceIds["gilled-bluecitrus"]
         },
         {
             id: "gilled-greenbabybass",
             name: "Green with Baby Bass Skirt",
             price: 12.99,
-            image: "/gilledpoppergreenblack.jpg",
+            image: "/gilledpoppergreenblack1.jpg",
             priceId: priceIds["gilled-greenbabybass"]
         },
         {
             id: "gilled-ivorygoldshiner",
             name: "Ivory with Golden Shiner Skirt",
             price: 12.99,
-            image: "/gilledpopperivoryblack.jpg",
+            image: "/gilledpopperivoryblack1.jpg",
             priceId: priceIds["gilled-ivorygoldshiner"]
         },
         {
             id: "gilled-orangebluegill",
             name: "Orange with Bluegill Skirt",
             price: 12.99,
-            image: "/gilledpopperorangeblack.jpg",
+            image: "/gilledpopperorangeblack1.jpg",
             priceId: priceIds["gilled-orangebluegill"]
         },
         {
             id: "gilled-purplepumpkin",
             name: "Purple with Pumpkin Seed Skirt",
             price: 12.99,
-            image: "/gilledpopperpurpleblack.jpg",
+            image: "/gilledpopperpurpleblack1.jpg",
             priceId: priceIds["gilled-purplepumpkin"]
         },
         {
             id: "gilled-redgizzard",
             name: "Red with Gizzard Shad Skirt",
             price: 12.99,
-            image: "/gilledpopperredblack.jpg",
+            image: "/gilledpopperredblack1.jpg",
             priceId: priceIds["gilled-redgizzard"]
         },
         {
             id: "gilled-yellowsexyshad",
             name: "Yellow with Sexy Shad Skirt",
             price: 12.99,
-            image: "/gilledpopperyellowblack.jpg",
+            image: "/gilledpopperyellowblack1.jpg",
             priceId: priceIds["gilled-yellowsexyshad"]
         },
+        {
+            id: "gilled-whiteknight",
+            name: "White Knight with Golden Shiner Skirt",
+            price: 12.99,
+            image: "/gilledwhiteknight.jpg",
+            priceId: priceIds["gilled-whiteknight"]
+        }
         
     ]
     return (

@@ -12,98 +12,98 @@ export default function TopWalkerPage() {
             id: "topwalker-blackcrappie",
             name: "Black with Crappie Skirt",
             price: 12.99,
-            image: "/topwalkerblack.jpg",
+            image: "/topwalkerblack1.jpg",
             priceId: priceIds["topwalker-blackcrappie"]
         },
         {
             id: "topwalker-bluechartreuse",
             name: "Blue with Chartreuse Shad Skirt",
             price: 12.99,
-            image: "/topwalkerblue.jpg",
+            image: "/topwalkerblue1.jpg",
             priceId: priceIds["topwalker-bluechartreuse"]
         },
         {
             id: "topwalker-graytennessee",
             name: "Gray with Tennessee Shad Skirt",
             price: 12.99,
-            image: "/topwalkergray.jpg",
+            image: "/topwalkergray1.jpg",
             priceId: priceIds["topwalker-graytennessee"]
         },
         {
             id: "topwalker-ivorywalleye",
             name: "Ivory with Walleye Skirt",
             price: 12.99,
-            image: "/topwalkerivoryblack.jpg",
+            image: "/topwalkerivoryblack1.jpg",
             priceId: priceIds["topwalker-ivorywalleye"]
         },
         {
             id: "topwalker-orangebluegill",
             name: "Orange with Bluegill Skirt",
             price: 12.99,
-            image: "/topwalkerorange.jpg",
+            image: "/topwalkerorange1.jpg",
             priceId: priceIds["topwalker-orangebluegill"]
         },
         {
             id: "topwalker-orangecitrus",
             name: "Orange with Citrus Shad Skirt",
             price: 12.99,
-            image: "/topwalkerorangeblack.jpg",
+            image: "/topwalkerorangeblack1.jpg",
             priceId: priceIds["topwalker-orangecitrus"]
         },
         {
             id: "topwalker-purplepumpkin",
             name: "Purple with Pumpkin Seed Skirt",
             price: 12.99,
-            image: "/topwalkerpurple.jpg",
+            image: "/topwalkerpurple1.jpg",
             priceId: priceIds["topwalker-purplepumpkin"]
         },
         {
             id: "topwalker-redgizzard",
             name: "Red with Gizzard Shad Skirt",
             price: 12.99,
-            image: "/topwalkerred.jpg",
+            image: "/topwalkerred1.jpg",
             priceId: priceIds["topwalker-redgizzard"]
         },
         {
             id: "topwalker-redbabybass",
-            name: "Red with Baby Bass Skirt",
+            name: "Red with Gizzard Shad Skirt",
             price: 12.99,
-            image: "/topwalkerredblack.jpg",
+            image: "/topwalkerredblack1.jpg",
             priceId: priceIds["topwalker-redbabybass"]
         },
         {
             id: "topwalker-whitegoldshiner",
             name: "White with Golden Shiner Skirt",
             price: 12.99,
-            image: "/topwalkerwhite.jpg",
+            image: "/topwalkerwhite1.jpg",
             priceId: priceIds["topwalker-whitegoldshiner"]
         },
         {
             id: "topwalker-yellowsexyshad",
             name: "Yellow with Sexy Shad Skirt",
             price: 12.99,
-            image: "/topwalkeryellow.jpg",
+            image: "/topwalkeryellow1.jpg",
             priceId: priceIds["topwalker-yellowsexyshad"]
         },
         {
             id: "topwalker-yellowperch",
             name: "Yellow with Yellow Perch Skirt",
             price: 12.99,
-            image: "/topwalkeryellowblack.jpg",
+            image: "/topwalkeryellowblack1.jpg",
             priceId: priceIds["topwalker-yellowperch"]
         },
         {
             id: "topwalker-browntrout",
             name: "Yellow/Brown with Rainbow Trout Skirt",
             price: 12.99,
-            image: "/topwalkeryellowbrown.jpg",
+            image: "/topwalkeryellowbrown1.jpg",
             priceId: priceIds["topwalker-browntrout"]
         },
         {
             id: "topwalker-candyshad",
             name: "Yellow/Green with Candy Shad Skirt",
             price: 12.99,
-            image: "/topwalkeryellowgreen.jpg",
+            image: "/topwalkeryellowgreen1.jpg",
             priceId: priceIds["topwalker-candyshad"]
         },
         
