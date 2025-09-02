@@ -133,6 +133,10 @@ export const priceIds = {
         test: "price_1RzMEnGuGV8LB8ftRy6vpiXE",
         live: "price_1S1vMmGuGV8LB8ftCsUHDvnO"
     },
+
+    "livetestitem": {
+        live: "price_1S2iJ7GuGV8LB8ftjkhvz1cd"
+    }
 };
 
 export function priceIdFor(id) {
