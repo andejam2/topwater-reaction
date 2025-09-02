@@ -1,73 +1,73 @@
+import { NextResponse } from "next/server";
 import Stripe from "stripe";
-import { headers } from "next/headers";
-import { priceIdFor } from "@/app/lib/priceIds";
+// ⬇️ adjust this import path if your priceIds file lives elsewhere
+import { priceIds } from "@/app/priceIds";
 
-export async function POST(req) {
-  const key = process.env.STRIPE_SECRET_KEY;
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
-  // --- TEMP: log what the server actually sees ---
-  console.log("checkout env:", {
-    hasKey: !!key,
-    prefix: key ? key.slice(0, 8) : "missing",
-    origin: headers().get("origin"),
-  });
+function isLiveMode() {
+  // auto-detect from publishable key to avoid mode drift
+  const pk = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || "";
+  return pk.startsWith("pk_live_");
+}
 
-  if (!key) {
-    return new Response(
-      JSON.stringify({ error: "Server misconfigured: missing STRIPE_SECRET_KEY" }),
-      { status: 500, headers: { "Content-Type": "application/json" } }
-    );
+function resolvePriceId(input) {
+  // Case 1: already a Stripe price id
+  if (typeof input === "string" && input.startsWith("price_")) return input;
+
+  const live = isLiveMode();
+
+  // Case 2: input is a slug/key present in priceIds.js
+  if (typeof input === "string") {
+    const mapped = priceIds[input]?.[live ? "live" : "test"];
+    if (mapped) return mapped;
   }
 
-  const stripe = new Stripe(key);
+  // Case 3: input is the full { test, live } object from priceIds.js
+  if (input && typeof input === "object") {
+    const mapped = input[live ? "live" : "test"];
+    if (mapped) return mapped;
+  }
 
+  throw new Error(
+    "Missing priceId (send a Stripe price_..., a slug/key from priceIds.js, or the {test,live} object)"
+  );
+}
+
+export async function POST(req) {
   try {
-    const { items } = await req.json();
+    const body = await req.json();
+    // Support either { items: [...] } or { line_items: [...] }
+    const items = body.items || body.line_items || [];
+    const origin = req.headers.get("origin");
 
-    // TEMP: log the payload shape too
-    console.log("checkout payload:", Array.isArray(items) ? items.length : items);
+    if (!process.env.STRIPE_SECRET_KEY) throw new Error("Missing STRIPE_SECRET_KEY");
+    if (!origin) throw new Error("Missing request origin");
+    if (!Array.isArray(items) || items.length === 0) throw new Error("No items");
 
-    const isLive = process.env.NEXT_PUBLIC_STRIPE_MODE === "live";
+    // Debug once if you need to see what the client is sending:
+    // console.log("CHECKOUT_DEBUG items:", JSON.stringify(items, null, 2));
 
-    const line_items = items.map((it) => {
-      // Accept both shapes:
-      // - string: "price_..."
-      // - object: { test: "price_...", live: "" }
-      const pid =
-        typeof it.priceId === "string" && it.priceId.startsWith("price_")
-          ? it.priceId
-          : priceIdFor(it.priceId);
-
-
-      if (!pid) {
-        throw new Error(`Missing priceId for ${it.name || it.id}`);
-      }
-
-      return {
-        price: pid,
-        quantity: Number(it.quantity) || 1,
-      };
+    const lineItems = items.map((it) => {
+      const pid = resolvePriceId(it.priceId);
+      const qty = Math.max(1, Number(it.quantity || 1));
+      return { price: pid, quantity: qty };
     });
-
-    const origin =
-      headers().get("origin") || process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
 
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
-      line_items,
+      line_items: lineItems,
       success_url: `${origin}/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${origin}/cart`,
+      cancel_url: `${origin}/canceled`,
     });
 
-    return new Response(JSON.stringify({ url: session.url }), {
-      headers: { "Content-Type": "application/json" },
-    });
+    return NextResponse.json({ url: session.url });
   } catch (err) {
-    console.error("Checkout error:", err);
-    return new Response(JSON.stringify({ error: String(err?.message || err) }), {
-      status: 500,
-      headers: { "Content-Type": "application/json" },
+    console.error("CHECKOUT_ERROR:", {
+      message: err.message,
+      type: err.type,
+      code: err.code,
     });
+    return NextResponse.json({ error: err.message }, { status: 500 });
   }
 }
-
