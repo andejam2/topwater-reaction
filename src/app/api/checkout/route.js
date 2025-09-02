@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
 // ⬇️ adjust this import path if your priceIds file lives elsewhere
-import { priceIds } from "@/app/priceIds";
+import { priceIds } from "@/priceIds";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
