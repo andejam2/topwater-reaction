@@ -64,13 +64,6 @@ export default function GilledPopperPage() {
             image: "/gilledpopperyellowblack1.jpg",
             priceId: priceIds["gilled-yellowsexyshad"]
         },
-        {
-            id: "gilled-whiteknight",
-            name: "White Knight with Golden Shiner Skirt",
-            price: 12.99,
-            image: "/gilledwhiteknight.jpg",
-            priceId: priceIds["gilled-whiteknight"]
-        }
         
     ]
     return (
