@@ -1,5 +1,6 @@
 import Stripe from "stripe";
 import { headers } from "next/headers";
+import { priceIdFor } from "@/app/lib/priceIds";
 
 export async function POST(req) {
   const key = process.env.STRIPE_SECRET_KEY;
@@ -33,9 +34,10 @@ export async function POST(req) {
       // - string: "price_..."
       // - object: { test: "price_...", live: "" }
       const pid =
-        typeof it.priceId === "string"
+        typeof it.priceId === "string" && it.priceId.startsWith("price_")
           ? it.priceId
-          : it.priceId?.[isLive ? "live" : "test"];
+          : priceIdFor(it.priceId);
+
 
       if (!pid) {
         throw new Error(`Missing priceId for ${it.name || it.id}`);
