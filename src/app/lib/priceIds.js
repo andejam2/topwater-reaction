@@ -137,5 +137,5 @@ export const priceIds = {
 
 export function priceIdFor(id) {
     const isLive = process.env.NEXT_PUBLIC_STRIPE_MODE === "live";
-    return PRICES[id]?.[isLive ? "live" : "test"];
+    return priceIds[id]?.[isLive ? "live" : "test"];
 }
