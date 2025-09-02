@@ -21,6 +21,9 @@ export async function POST(req) {
 
   const stripe = new Stripe(key);
 
+  console.log("DEBUG priceId object:", it.priceId);
+
+
   try {
     const { items } = await req.json();
 
