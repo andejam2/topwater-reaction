@@ -65,11 +65,11 @@ export default function TopWalkerPage() {
             priceId: priceIds["topwalker-redgizzard"]
         },
         {
-            id: "topwalker-redbabybass",
-            name: "Red with Gizzard Shad Skirt",
+            id: "topwalker-redblackgizzard",
+            name: "Red/Black with Gizzard Shad Skirt",
             price: 12.99,
             image: "/topwalkerredblack1.jpg",
-            priceId: priceIds["topwalker-redbabybass"]
+            priceId: priceIds["topwalker-redblackgizzard"]
         },
         {
             id: "topwalker-whitegoldshiner",
