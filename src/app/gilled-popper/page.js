@@ -64,13 +64,7 @@ export default function GilledPopperPage() {
             image: "/gilledpopperyellowblack1.jpg",
             priceId: priceIds["gilled-yellowsexyshad"]
         },
-        {
-            id:"livetestitem",
-            name: "live test item",
-            price: 0.50,
-            image: "smallbass.jpg",
-            priceId: priceIds["livetestitem"]
-        },
+
         
     ]
     return (
