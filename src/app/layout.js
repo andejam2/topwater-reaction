@@ -5,6 +5,7 @@ import { CartProvider } from "./components/cartcontext";
 import Image from "next/image";
 import Footer from "./components/footer";
 import Navbar from "./components/navbar";
+import {Analytics} from "@vercel/analytics/react";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
@@ -23,6 +24,7 @@ export default function RootLayout({ children }) {
           <main className="p-4">{children}</main>
           <Footer />
         </CartProvider>
+        <Analytics />
       </body>
     </html>
   );
