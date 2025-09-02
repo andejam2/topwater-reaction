@@ -73,7 +73,7 @@ export default function AboutPage() {
               </div>
               <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-4">
                 <div className="text-xs uppercase text-zinc-400">Contact</div>
-                <div className="text-sm font-medium">topwaterreactionbaits.com</div>
+                <div className="text-sm font-medium break-words whitespace-normal">topwaterreactionbaits.com</div>
               </div>
             </div>
 
