@@ -133,7 +133,7 @@ export default function KnightSeriesPage() {
       <header className="text-center space-y-3">
         <h1 className="text-4xl font-bold mb-2 text-center">Knight Series</h1>
         <p className="text-white/80 max-w-2xl mx-auto">
-          Fishing's not luck - it's strategy. Move smart. Strike fast.
+          Fishing&apos;s not luck - it&apos;s strategy. Move smart. Strike fast.
         </p>
       </header>
 
