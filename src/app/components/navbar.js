@@ -23,6 +23,7 @@ export default function Navbar() {
                         <Link href="/feather-pop" className="hover:text-odgreen">Feather Pop</Link>
                         <Link href="/gilled-popper" className="hover:text-odgreen">Gilled Popper</Link>
                         <Link href="/topwalker" className="hover:text-odgreen">TopWalker</Link>
+                        <Link href="/knight-series" className="hover:text-odgreen">Knight Series</Link>
                         <Link href="/cart" className="hover:text-odgreen">Cart</Link>
                         <Link href="/about" className="hover:text-odgreen">About Us</Link>
                         <Link href="/contact" className="hover:text-odgreen">Contact</Link>

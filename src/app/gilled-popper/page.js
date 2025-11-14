@@ -11,56 +11,49 @@ export default function GilledPopperPage() {
         {
             id: "gilled-blackwalleye",
             name: "Black with Walleye Skirt",
-            price: 12.99,
+            price: 15.78,
             image: "/gilledpopperblack1.jpg",
             priceId: priceIds["gilled-blackwalleye"]
         },
         {
             id: "gilled-bluecitrus",
             name: "Blue with Citrus Shad Skirt",
-            price: 12.99,
+            price: 15.78,
             image: "/gilledpopperblueblack1.jpg",
             priceId: priceIds["gilled-bluecitrus"]
         },
         {
             id: "gilled-greenbabybass",
             name: "Green with Baby Bass Skirt",
-            price: 12.99,
+            price: 15.78,
             image: "/gilledpoppergreenblack1.jpg",
             priceId: priceIds["gilled-greenbabybass"]
         },
         {
-            id: "gilled-ivorygoldshiner",
-            name: "Ivory with Golden Shiner Skirt",
-            price: 12.99,
-            image: "/gilledpopperivoryblack1.jpg",
-            priceId: priceIds["gilled-ivorygoldshiner"]
-        },
-        {
             id: "gilled-orangebluegill",
             name: "Orange with Bluegill Skirt",
-            price: 12.99,
+            price: 15.78,
             image: "/gilledpopperorangeblack1.jpg",
             priceId: priceIds["gilled-orangebluegill"]
         },
         {
             id: "gilled-purplepumpkin",
             name: "Purple with Pumpkin Seed Skirt",
-            price: 12.99,
+            price: 15.78,
             image: "/gilledpopperpurpleblack1.jpg",
             priceId: priceIds["gilled-purplepumpkin"]
         },
         {
             id: "gilled-redgizzard",
             name: "Red with Gizzard Shad Skirt",
-            price: 12.99,
+            price: 15.78,
             image: "/gilledpopperredblack1.jpg",
             priceId: priceIds["gilled-redgizzard"]
         },
         {
             id: "gilled-yellowsexyshad",
             name: "Yellow with Sexy Shad Skirt",
-            price: 12.99,
+            price: 15.78,
             image: "/gilledpopperyellowblack1.jpg",
             priceId: priceIds["gilled-yellowsexyshad"]
         },
